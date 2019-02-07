@@ -5,8 +5,10 @@ node {
    stage('Unit Test') {
       // run the unit tests
       dir("python_pipeline") {
+	 sh "pwd"
          sh "virtualenv .env"
          sh ". .env/bin/activate"
+	 sh "pwd"
          sh "pip install -r requirements.txt"
          sh "python -m pytest tests/test_app.py"
       }
